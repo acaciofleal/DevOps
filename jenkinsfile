@@ -1,0 +1,25 @@
+pipeline {
+  agent any
+
+    
+  stages {
+      
+    stage('Cloning Git') {
+      steps {
+        git 'https://innersource.accenture.com/scm/~acacio.f.leal/treinamentodevops.git'
+      }
+    }
+        
+    stage('Install dependencies') {
+      steps {
+        sh 'npm install'
+      }
+    }
+     
+    stage('Test') {
+      steps {
+         sh 'npm test'
+      }
+    }      
+  }
+}
